@@ -113,7 +113,7 @@ level2 = Level(False, 20, 3, generate_brick_grid(2, 10, 10, 4, 5, 27, 10), defau
 level3 = Level(False, 60, 3, generate_brick_grid(1, 10, 10, 6, 10, 18, 10), default_three_walls)
 level4 = Level(False, 1, 3, [Brick(10, Rect(random.choice(rainbow_colors), (10, 10), (108, 60)))], default_three_walls)
 level5 = Level(
-    False, 23, 6,
+    False, 19, 7,
     [
         Brick(3, Rect(random.choice(rainbow_colors), (41, 20), (15, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (56, 20), (15, 10))),
@@ -126,7 +126,7 @@ level5 = Level(
         Brick(3, Rect(random.choice(rainbow_colors), (79, 30), (15, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (94, 30), (15, 10))),
 
-        Brick(3, Rect(random.choice(rainbow_colors), (10, 40), (30, 10))),
+        #Brick(3, Rect(random.choice(rainbow_colors), (10, 40), (30, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (88, 40), (30, 10))),
 
         Brick(3, Rect(random.choice(rainbow_colors), (19, 50), (15, 10))),
@@ -138,11 +138,11 @@ level5 = Level(
 
         Brick(3, Rect(random.choice(rainbow_colors), (41, 60), (15, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (56, 60), (15, 10))),
-        Brick(3, Rect(random.choice(rainbow_colors), (71, 60), (15, 10))),
+        Brick(3, Rect(random.choice(rainbow_colors), (71, 60), (15, 10)))
 
-        Brick(3, Rect(random.choice(rainbow_colors), (34, 80), (20, 10))),
-        Brick(3, Rect(random.choice(rainbow_colors), (54, 80), (20, 10))),
-        Brick(3, Rect(random.choice(rainbow_colors), (74, 80), (20, 10)))
+   #     Brick(3, Rect(random.choice(rainbow_colors), (34, 80), (20, 10))),
+   #     Brick(3, Rect(random.choice(rainbow_colors), (54, 80), (20, 10))),
+   #     Brick(3, Rect(random.choice(rainbow_colors), (74, 80), (20, 10)))
     ],
     [
         Rect("0x008c8c8c", (0, 0), (10, 118)),
@@ -150,7 +150,8 @@ level5 = Level(
         Rect("0x008c8c8c", (10, 0), (108, 10)),
         Rect("0x008c8c8c", (40, 40), (48, 10)),
         Rect("0x008c8c8c", (10, 80), (24, 10)),
-        Rect("0x008c8c8c", (94, 80), (24, 10))
+        Rect("0x008c8c8c", (94, 80), (24, 10)),
+        Rect("0x007c7c7c", (10, 113), (108, 5))
     ]
 )
 
@@ -162,7 +163,7 @@ s += str(level4) + ","
 s += str(level5)
 print(s)
 
-print(str(level4))
+print(str(level5))
 
 test = [
 
