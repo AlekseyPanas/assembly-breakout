@@ -1738,7 +1738,8 @@ fn_run_game: # () -> void
         # // ####################### End Compute Collisions
         
         
-        
+        # // Pop stack variables
+        addi $sp, $sp, 88   
         
     ENDIF_run_game_5:
     # // ############ END MAIN GAME FUNCTIONALITY
@@ -1776,9 +1777,7 @@ fn_run_game: # () -> void
         jal fn_game_update_paused
     ENDIF_run_game_6:
     # // ############ END PAUSING FUNCTIONALITY
-
-    # // Pop stack variables
-    addi $sp, $sp, 88    
+ 
 
     # return
     addi $sp, $sp, 4
