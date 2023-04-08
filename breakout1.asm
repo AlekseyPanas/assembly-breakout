@@ -790,6 +790,8 @@ fn_run_game: # () -> void
         # 76($sp) = future_neg_x.y
         # 80($sp) = future_y
         # 84($sp) = future_neg_y.y
+        # 88($sp) = brick_remove_count  // Used to decrement num_bricks after brick loop
+        subi $sp, $sp, 4
         subi $sp, $sp, 4
         subi $sp, $sp, 4
         subi $sp, $sp, 4
@@ -819,6 +821,119 @@ fn_run_game: # () -> void
         subi $sp, $sp, 4
         sw $t6, 0($sp)
         subi $sp, $sp, 4
+        
+        
+        # Deducts life from the brick pointed to by local variable ptr and erases brick if gone
+        # Also increments score. Called from brick loop
+        j ENDFN_run_game_1
+        FN_run_game_1:  # () -> void
+            # brick.life--
+            lw $t0, 68($sp)
+            lw $t1, 0($t0)
+            subi $t1, $t1, 1
+            sw $t1, 0($t0)
+
+            # if (brick.life == 0)
+            bne $t1, 0, ELSE_run_game_8
+            IF_run_game_13:
+            
+                # // Erase brick
+                sw $ra, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, BG_COLOR
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 8($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 12($t0)
+                addi $t1, $t1, 10  # Shift for topbar
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 16($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 20($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_draw_rect
+                addi $sp, $sp, 4
+                lw $ra, 0($sp)
+                
+                # game.score++
+                la $t0, game
+                lw $t1, 2152($t0)
+                addi $t1, $t1, 1
+                sw $t1, 2152($t0)
+                
+                # // Redraw score
+                sw $ra, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_game_update_score
+                addi $sp, $sp, 4
+                lw $ra, 0($sp)
+                
+                # brick_remove_count++  
+                lw $t1, 88($sp)
+                addi $t1, $t1, 1
+                sw $t1, 88($sp)
+                
+                j ENDIF_run_game_13
+            ELSE_run_game_8: # else: // Brick still alive
+                # ptr->rect.color *= ptr->life / (ptr->life + 1)
+                lw $t0, 68($sp)
+                lw $t1, 0($t0)
+                lbu $t2, 4($t0)  # // b
+                lbu $t3, 5($t0)  # // g
+                lbu $t4, 6($t0)  # // r
+                addi $t5, $t1, 1
+                sll $t1, $t1, 10 # // 10 shift for float accuracy
+                div $t1, $t5
+                mflo $t1 # // t1 = (life*2^10)/(life+1)
+                mult $t2, $t1
+                mflo $t2
+                srl $t2, $t2, 10
+                sb $t2, 4($t0)
+                mult $t3, $t1
+                mflo $t3
+                srl $t3, $t3, 10
+                sb $t3, 5($t0)
+                mult $t4, $t1
+                mflo $t4
+                srl $t4, $t4, 10
+                sb $t4, 6($t0)
+                
+                # // Redraw Brick
+                lw $t0, 68($sp)
+                sw $ra, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 4($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 8($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 12($t0)
+                addi $t1, $t1, 10  # Shift for topbar
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 16($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                lw $t1, 20($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_draw_rect
+                addi $sp, $sp, 4
+                lw $ra, 0($sp)
+                
+            ENDIF_run_game_13:
+            
+            # return
+            jr $ra
+        ENDFN_run_game_1:
+        
+        
         
         # // Loop max(abs(vel.x), abs(vel.y)) times because that times the unit vector will yield the velocity
         LOOP_run_game_2: # while (i < loop_amount)
@@ -886,6 +1001,10 @@ fn_run_game: # () -> void
             addi $t0, $t0, 4
             sw $t0, 68($sp)
             
+            # brick_remove_count = 0
+            li $t1, 0
+            sw $t1, 88($sp)
+            
             LOOP_run_game_3: # while (b < num_bricks)
                 la $t0, game
                 lbu $t1, 2($t0)
@@ -931,19 +1050,8 @@ fn_run_game: # () -> void
                         li $t1, 1
                         sw $t1, 36($sp)
                         
-                        # brick.life--
-                        # lw $t0, 68($sp)
-                        # lw $t1, 0($t0)
-                        # subi $t1, $t1, 1
-                        # sw $t1, 0($t0)
-                        
-                        # if (brick.life == 0)
-                        bne $t1, 0, ENDIF_run_game_13
-                        IF_run_game_13:
-                        
-                            # TODO: erase brick, add to score, redraw score
-                        
-                        ENDIF_run_game_13:
+                        # // Deducts brick life. If brick 0 lives, removes it and adds score
+                        jal FN_run_game_1
                         
                     ENDIF_run_game_12:
                     
@@ -983,7 +1091,14 @@ fn_run_game: # () -> void
                         li $t1, 1
                         sw $t1, 44($sp)
                         
-                        # TODO: Brick removal service
+                        # if (ptr->life != 0)  // Brick != NULL, which means that it was just deleted by future_x
+                        lw $t1, 68($sp)
+                        lw $t1, 0($t1)
+                        beq $t1, 0, ENDIF_run_game_30
+                        IF_run_game_30:
+                            # // Deducts brick life. If brick 0 lives, removes it and adds score.
+                            jal FN_run_game_1
+                        ENDIF_run_game_30:
                         
                     ENDIF_run_game_14:
                     
@@ -1078,7 +1193,12 @@ fn_run_game: # () -> void
                 j LOOP_run_game_3
             ENDLOOP_run_game_3:
             
-            
+            # game.level.num_bricks -= brick_remove_count
+            la $t0, game
+            lw $t1, 88($sp)
+            lbu $t2, 2($t0)
+            sub $t2, $t2, $t1
+            sb $t2, 2($t0)
             
             # w = 0
             li $t0, 0
@@ -1496,37 +1616,37 @@ fn_run_game: # () -> void
             
             
             ####### DEBUG: Draws path trace on every velocity calculation
-            la $t0, game
-            lw $t1, 2124($t0)
-            lw $t2, 2128($t0)
+            # la $t0, game
+            # lw $t1, 2124($t0)
+            # lw $t2, 2128($t0)
             
-            lw $t3, 52($sp)
-            sra $t3, $t3, 8
-            lw $t4, 56($sp)
-            sra $t4, $t4, 8
+            # lw $t3, 52($sp)
+            # sra $t3, $t3, 8
+            # lw $t4, 56($sp)
+            # sra $t4, $t4, 8
             
-            add $t1, $t1, $t3  # t1 = game.ball_pos.x + unshift(total_movement.x)
-            add $t2, $t2, $t4  # t2 = game.ball_pos.y + unshift(total_movement.y)
+            # add $t1, $t1, $t3  # t1 = game.ball_pos.x + unshift(total_movement.x)
+            # add $t2, $t2, $t4  # t2 = game.ball_pos.y + unshift(total_movement.y)
             
-            li $t8, 0x0000ffff
-            sw $t8, 0($sp)
-            subi $sp, $sp, 4
+            # li $t8, 0x0000ffff
+            # sw $t8, 0($sp)
+            # subi $sp, $sp, 4
             
-            sw $t1, 0($sp)
-            subi $sp, $sp, 4
+            # sw $t1, 0($sp)
+            # subi $sp, $sp, 4
             
-            addi $t2, $t2, 10
-            sw $t2, 0($sp)
-            subi $sp, $sp, 4
+            # addi $t2, $t2, 10
+            # sw $t2, 0($sp)
+            # subi $sp, $sp, 4
             
-            li $t1, 3
-            sw $t1, 0($sp)
-            subi $sp, $sp, 4
+            # li $t1, 3
+            # sw $t1, 0($sp)
+            # subi $sp, $sp, 4
             
-            li $t1, 3
-            sw $t1, 0($sp)
-            subi $sp, $sp, 4
-            jal fn_draw_rect
+            # li $t1, 3
+            # sw $t1, 0($sp)
+            # subi $sp, $sp, 4
+            # jal fn_draw_rect
             ########################################
             
             # i++
@@ -1536,38 +1656,38 @@ fn_run_game: # () -> void
             j LOOP_run_game_2
         ENDLOOP_run_game_2:
         
-        # li $v0, 1
-        # lw $a0, 52($sp)
-        # syscall
-        # li $v0, 4
-        # la $a0, SPACE
-        # syscall
-        # li $v0, 1
-        # lw $a0, 56($sp)
-        # syscall 
-        # li $v0, 4
-        # la $a0, NEWLINE
-        # syscall
+        li $v0, 1
+        lw $a0, 52($sp)
+        syscall
+        li $v0, 4
+        la $a0, SPACE
+        syscall
+        li $v0, 1
+        lw $a0, 56($sp)
+        syscall 
+        li $v0, 4
+        la $a0, NEWLINE
+        syscall
         
         # draw_rect(Rect(BG_COLOR, game.ball_pos, Vec(3, 3)))    // Erase Ball
-        # la $t0, game
-        # lw $t1, BG_COLOR
-        # sw $t1, 0($sp)
-        # subi $sp, $sp, 4
-        # lw $t1, 2124($t0)
-        # sw $t1, 0($sp)
-        # subi $sp, $sp, 4
-        # lw $t1, 2128($t0)
-        # addi $t1, $t1, 10   # // shift for topbar
-        # sw $t1, 0($sp)
-        # subi $sp, $sp, 4
-        # li $t1, 3
-        # sw $t1, 0($sp)
-        # subi $sp, $sp, 4
-        # li $t1, 3
-        # sw $t1, 0($sp)
-        # subi $sp, $sp, 4
-        # jal fn_draw_rect
+        la $t0, game
+        lw $t1, BG_COLOR
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        lw $t1, 2124($t0)
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        lw $t1, 2128($t0)
+        addi $t1, $t1, 10   # // shift for topbar
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        li $t1, 3
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        li $t1, 3
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        jal fn_draw_rect
         
         # game.ball_pos += unshift(total_movement)
         la $t0, game
@@ -1582,18 +1702,18 @@ fn_run_game: # () -> void
         sw $t1, 2124($t0)
         sw $t2, 2128($t0)
         
-        # li $v0, 1
-        # addi $a0, $t1, 0
-        # syscall
-        # li $v0, 4
-        # la $a0, SPACE
-        # syscall
-        # li $v0, 1
-        # addi $a0, $t2, 0
-        # syscall 
-        # li $v0, 4
-        # la $a0, NEWLINE
-        # syscall
+        li $v0, 1
+        addi $a0, $t1, 0
+        syscall
+        li $v0, 4
+        la $a0, SPACE
+        syscall
+        li $v0, 1
+        addi $a0, $t2, 0
+        syscall 
+        li $v0, 4
+        la $a0, NEWLINE
+        syscall
         
         # draw_rect(Rect(WHITE, game.ball_pos, Vec(3, 3)))    // Draw new ball
         la $t0, game
@@ -1616,7 +1736,8 @@ fn_run_game: # () -> void
         jal fn_draw_rect
         
         # // ####################### End Compute Collisions
-        addi $t1, $t1, 0
+        
+        
         
         
     ENDIF_run_game_5:
@@ -1656,7 +1777,8 @@ fn_run_game: # () -> void
     ENDIF_run_game_6:
     # // ############ END PAUSING FUNCTIONALITY
 
-    addi $sp, $sp, 84    
+    # // Pop stack variables
+    addi $sp, $sp, 88    
 
     # return
     addi $sp, $sp, 4
@@ -1721,6 +1843,24 @@ fn_game_update_paused: # () -> void
 fn_game_update_score: # () -> void
     sw $ra, 0($sp)
     subi $sp, $sp, 4
+    
+    # // Erase score
+    lw $t1, BG_COLOR
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 50
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 2
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 12
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 7
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
     
     # draw_int(Vec(50, 2), game->score)
     li $t1, 50
