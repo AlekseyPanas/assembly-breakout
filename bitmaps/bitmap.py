@@ -26,10 +26,10 @@ import time
 import copy
 
 
-DIMS = (10, 10)
-MULT = 20
+DIMS = (90, 50)
+MULT = 15
 bg = (0, 0, 0)
-color = (255, 255, 255)
+color = (255, 70, 70)
 
 
 def output(matrix):
