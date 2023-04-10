@@ -103,17 +103,17 @@ rainbow_colors = ["0x00ff0000", "0x00ff6400", "0x00ffe600", "0x0000ff00",
                   "0x0000beff", "0x000000ff", "0x007300ff", "0x00ff00fa"]
 
 default_three_walls = [
-    Rect("0x008c8c8c", (0, 0), (10, 118)),
-    Rect("0x008c8c8c", (118, 0), (10, 118)),
-    Rect("0x008c8c8c", (10, 0), (108, 10))
+    Rect("0x008c8c8c", (0, 0), (4, 118)),
+    Rect("0x008c8c8c", (124, 0), (4, 118)),
+    Rect("0x008c8c8c", (4, 0), (120, 10))
 ]
 
-level1 = Level(False, 20, 3, generate_brick_grid(1, 10, 10, 4, 5, 27, 10), default_three_walls)
-level2 = Level(False, 20, 3, generate_brick_grid(2, 10, 10, 4, 5, 27, 10), default_three_walls)
-level3 = Level(False, 60, 3, generate_brick_grid(1, 10, 10, 6, 10, 18, 10), default_three_walls)
+level1 = Level(False, 6, 3, generate_brick_grid(1, 4, 10, 6, 1, 20, 20), default_three_walls)
+level2 = Level(False, 12, 3, generate_brick_grid(2, 4, 10, 6, 2, 20, 10), default_three_walls)
+level3 = Level(False, 36, 3, generate_brick_grid(1, 4, 10, 12, 3, 10, 5), default_three_walls)
 level4 = Level(False, 1, 3, [Brick(10, Rect(random.choice(rainbow_colors), (10, 10), (108, 60)))], default_three_walls)
 level5 = Level(
-    False, 19, 7,
+    False, 23, 6,
     [
         Brick(3, Rect(random.choice(rainbow_colors), (41, 20), (15, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (56, 20), (15, 10))),
@@ -126,7 +126,7 @@ level5 = Level(
         Brick(3, Rect(random.choice(rainbow_colors), (79, 30), (15, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (94, 30), (15, 10))),
 
-        #Brick(3, Rect(random.choice(rainbow_colors), (10, 40), (30, 10))),
+        Brick(3, Rect(random.choice(rainbow_colors), (10, 40), (30, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (88, 40), (30, 10))),
 
         Brick(3, Rect(random.choice(rainbow_colors), (19, 50), (15, 10))),
@@ -138,20 +138,20 @@ level5 = Level(
 
         Brick(3, Rect(random.choice(rainbow_colors), (41, 60), (15, 10))),
         Brick(3, Rect(random.choice(rainbow_colors), (56, 60), (15, 10))),
-        Brick(3, Rect(random.choice(rainbow_colors), (71, 60), (15, 10)))
+        Brick(3, Rect(random.choice(rainbow_colors), (71, 60), (15, 10))),
 
-   #     Brick(3, Rect(random.choice(rainbow_colors), (34, 80), (20, 10))),
-   #     Brick(3, Rect(random.choice(rainbow_colors), (54, 80), (20, 10))),
-   #     Brick(3, Rect(random.choice(rainbow_colors), (74, 80), (20, 10)))
+        Brick(3, Rect(random.choice(rainbow_colors), (34, 75), (20, 5))),
+        Brick(3, Rect(random.choice(rainbow_colors), (54, 75), (20, 5))),
+        Brick(3, Rect(random.choice(rainbow_colors), (74, 75), (20, 5)))
     ],
     [
         Rect("0x008c8c8c", (0, 0), (10, 118)),
         Rect("0x008c8c8c", (118, 0), (10, 118)),
         Rect("0x008c8c8c", (10, 0), (108, 10)),
         Rect("0x008c8c8c", (40, 40), (48, 10)),
-        Rect("0x008c8c8c", (10, 80), (24, 10)),
-        Rect("0x008c8c8c", (94, 80), (24, 10)),
-        Rect("0x007c7c7c", (10, 113), (108, 5))
+        Rect("0x008c8c8c", (10, 75), (24, 5)),
+        Rect("0x008c8c8c", (94, 75), (24, 5))
+        #Rect("0x007c7c7c", (10, 113), (108, 5)) // Helper bottom wall
     ]
 )
 

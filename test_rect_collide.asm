@@ -167,6 +167,40 @@ main:
     li $v0, 1
     addi $a0, $t1, 0
     syscall
+    
+    
+    
+    li $t1, 0
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 5
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 15
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 5
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 10
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 0
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 10
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 20
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_rect_collide
+    addi $sp, $sp, 4
+    lw $t1, 0($sp)
+    
+    li $v0, 1
+    addi $a0, $t1, 0
+    syscall
 
 j END_PROG
 
