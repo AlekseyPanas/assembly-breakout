@@ -1336,6 +1336,7 @@ fn_run_editor: # () -> void
             sw $t5, 4($sp) # 4($sp) = &custom_levels[level_idx]
             
             lw $t1, 4($sp)
+            lbu $t1, 2($t1)
             bge $t1, 80, ENDIF_run_editor_7
             IF_run_editor_7: # if (->num_bricks < 80)
                 
@@ -1417,14 +1418,14 @@ fn_run_editor: # () -> void
                             sb $t2, 2($t1)
                             
                             # break;
-                            j ENDLOOP_run_editor_2
+                            j ENDLOOP_run_editor_1
                             
                         ENDIF_run_editor_9:
                     
                         # ptr += sizeof(Brick) // 24
                         addi $t0, $t0, 24
                         j LOOP_run_editor_1
-                    ENDLOOP_run_editor_2:
+                    ENDLOOP_run_editor_1:
                     
                 ENDIF_run_editor_8:
             
@@ -1433,6 +1434,123 @@ fn_run_editor: # () -> void
             addi $sp, $sp, 20
             j ENDIF_run_editor_2
         ELIF_run_editor_13: # key == 'v'
+        
+            # 4($sp) &custom_levels[level_idx]
+            # 8($sp) x 
+            # 12($sp) y
+            # 16($sp) w 
+            # 20($sp) h
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+        
+            la $t0, custom_levels
+            lbu $t4, editor
+            li $t5, 2124
+            mult $t4, $t5
+            mflo $t5
+            add $t5, $t0, $t5 
+            sw $t5, 4($sp) # 4($sp) = &custom_levels[level_idx]
+
+            lw $t1, 4($sp)
+            lbu $t1, 1($t1)
+            bge $t1, 10, ENDIF_run_editor_10
+            IF_run_editor_10: # if (->num_walls < 10)
+                
+                # // Compute rectangle and save it to the stack
+                la $t0, editor
+                lw $t1, 12($t0)
+                lw $t2, 16($t0)
+                lw $t3, 20($t0)
+                lw $t4, 24($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                sw $t2, 0($sp)
+                subi $sp, $sp, 4
+                sw $t3, 0($sp)
+                subi $sp, $sp, 4
+                sw $t4, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_corners_to_rect
+                addi $sp, $sp, 4
+                lw $t4, 0($sp) # h
+                addi $sp, $sp, 4
+                lw $t3, 0($sp) # w
+                addi $sp, $sp, 4
+                lw $t2, 0($sp) # y
+                addi $sp, $sp, 4
+                lw $t1, 0($sp) # x
+                sw $t1, 8($sp)
+                sw $t2, 12($sp)
+                sw $t3, 16($sp)
+                sw $t4, 20($sp)
+                
+                # if (! rect.collide(level))
+                lw $t6, 4($sp)
+                sw $t6, 0($sp)
+                subi $sp, $sp, 4
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                sw $t2, 0($sp)
+                subi $sp, $sp, 4
+                sw $t3, 0($sp)
+                subi $sp, $sp, 4
+                sw $t4, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_collide_level
+                addi $sp, $sp, 4
+                lw $t7, 0($sp)
+                addi $sp, $sp, 4
+                bne $t7, 4, ENDIF_run_editor_11
+                IF_run_editor_11:
+                
+                    lw $t0, 4($sp) # // level pointer
+                    addi $t0, $t0, 1924 # // Go to walls
+                    LOOP_run_editor_2:
+                        
+                        # if (wall == NULL)
+                        lw $t1, 0($t0)
+                        srl $t1, $t1, 24
+                        seq $t1, $t1, 0xff
+                        bne $t1, 1, ENDIF_run_editor_12
+                        IF_run_editor_12:
+                            
+                            # // Generate wall
+                            la $t1, editor
+                            lw $t2, 28($t1) # color = color
+                            sw $t2, 0($t0)
+                            lw $t2, 8($sp) # x
+                            sw $t2, 4($t0)
+                            lw $t2, 12($sp) # y
+                            sw $t2, 8($t0)
+                            lw $t2, 16($sp) # w
+                            sw $t2, 12($t0)
+                            lw $t2, 20($sp) # h
+                            sw $t2, 16($t0)
+                            
+                            # ->num_walls++
+                            lw $t1, 4($sp)
+                            lbu $t2, 1($t1)
+                            addi $t2, $t2, 1
+                            sb $t2, 1($t1)
+                            
+                            # break;
+                            j ENDLOOP_run_editor_2
+                            
+                        ENDIF_run_editor_12:
+                    
+                        # ptr += sizeof(Wall) // 20
+                        addi $t0, $t0, 20
+                        j LOOP_run_editor_2
+                    ENDLOOP_run_editor_2:
+                    
+                ENDIF_run_editor_11:
+            
+            ENDIF_run_editor_10:
+        
+            addi $sp, $sp, 20
         
         ENDIF_run_editor_2:
         
