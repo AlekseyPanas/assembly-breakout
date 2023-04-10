@@ -191,6 +191,9 @@ BMP_MAX_LEVELS_ERROR:
     .word 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 
     .word 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0x00ff3232, 0x00ff3232, 0x00ff3232, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000
 
+BMP_EDITOR_CURSOR: .word 0x00000003, 0x00000003, 0xff000000, 0x0000ffff, 0xff000000, 0x0000ffff, 0x0000ffff, 0x0000ffff, 0xff000000, 0x0000ffff, 0xff000000
+BMP_EDITOR_RGB_TEXT: .word 0x00000014, 0x0000000a, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0x00ffffff, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0x00ffffff, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000, 0xff000000
+
 
 # Mutable Data 
 ########################
@@ -301,6 +304,7 @@ dirty: .byte 1 # boolean // 1 if state is being intialized
 .globl main
 
 main:
+
     # menu_state.state, .level_idx, .max_unlocked, .highscore = 0
     la $t0, menu_state
     li $t1, 0
@@ -683,7 +687,7 @@ fn_run_level_sel_menu: # () -> void
                 sb $t1, menu_state
                 
                 la $t0, game
-                li $t1, 1
+                li $t1, 2
                 sb $t1, 2148($t0) # // mode_mask = 2
                 la $t3, menu_state
                 lbu $t1, 1($t3)
@@ -932,9 +936,20 @@ fn_run_editor_menu: # () -> void
                     
                 j ENDIF_run_editor_menu_4
             ELSE_run_editor_menu_1: # else:  // Level was pressed
+                # /************* STATE CHANGE *************/ -> Editor
+            
                 # dirty = 1
+                li $t1, 1
+                sb $t1, dirty
+                
                 # menu_state.state = 7
+                li $t1, 7
+                sb $t1, menu_state
+                
                 # editor.level_idx = menu.level_idx
+                la $t0, menu_state
+                lbu $t1, 1($t0) # level_idx
+                sb $t1, editor
                 
             ENDIF_run_editor_menu_4:
         
@@ -950,8 +965,114 @@ fn_run_editor_menu: # () -> void
     
     
 fn_run_editor: # () -> void
+    sw $ra, 0($sp)
+    subi $sp, $sp, 4
+
+    # ######################### INITIALIZATION #####################
+    lbu $t1, dirty
+    bne $t1, 1, ENDIF_run_editor_1
+    IF_run_editor_1: # if dirty
+        
+        # dirty = 0
+        li $t1, 0
+        sb $t1, dirty
+    
+        # // Clear Screen
+        jal fn_clear_screen
+    
+        la $t0, editor
+        li $t1, 1
+        sb $t1, 1($t0) # .RGB_sel = 1
+        sb $t1, 3($t0) # .lives = 1
+        li $t1, 0
+        sb $t1, 2($t0) # .error_timer = 0
+        li $t1, 50
+        sw $t1, 4($t0) # .cursor_pos.x = 50
+        sw $t1, 8($t0) # .cursor_pos.y = 50
+        li $t1, 10
+        sw $t1, 12($t0) # .corner1.x = 10
+        sw $t1, 16($t0) # .corner1.y = 10
+        li $t1, 15
+        sw $t1, 20($t0) # .corner2.x = 15
+        sw $t1, 24($t0) # .corner2.y = 15
+        li $t1, 0x00ff0000
+        sw $t1, 28($t0) # .color = Red
+        
+        # // Draw editor
+        jal fn_draw_editor_topbar
+        jal fn_draw_editor_main
+    
+    ENDIF_run_editor_1:
+
+    # ######################### END INITIALIZATION #####################
+
+    # if (keyboard.is_pressed)
+    lw $t0, ADDR_KBRD
+    lw $t1, 0($t0)
+    bne $t1, 1, ENDIF_run_editor_3
+    IF_run_editor_3:
+        # 1 = 49, 2 = 50, b = 98, x = 120, a = 97, s = 115, d = 100, w = 119, [ = 91, ] = 93, q = 113, e = 101, r = 114, v = 118
+        
+        lw $t1, 4($t0) # key
+        beq $t1, 49, ELIF_run_editor_4
+        beq $t1, 50, ELIF_run_editor_5
+        beq
+        
+        j ENDIF_run_editor_2
+        IF_run_editor_2: # key == 'd' && cursor.x < 127
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_1: # key == 'a' && cursor.x > 0
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_2: # key == 'w' && cursor.y > 0
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_3: # key == 's' && cursor.y < 117
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_4: # key == '1'
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_5: # key == '2'
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_6: # key == '[' && rgb_sel > 1
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_7: # key == ']' && rgb_sel < 4
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_8: # key == 'q'
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_9: # key == 'e'
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_10: # key == 'r'
+            # /********** STATE CHANGE *********/ -> Main Menu
+            li $t1, 1
+            sb $t1, dirty
+            
+            li $t1, 0
+            sb $t1, menu_state   
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_11: # key == 'x'
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_12: # key == 'b'
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_13: # key == 'v'
+        
+        ENDIF_run_editor_2:
+    ENDIF_run_editor_3:
+
 
     # return
+    addi $sp, $sp, 4
+    lw $ra, 0($sp)
     jr $ra
     
     
@@ -975,13 +1096,31 @@ fn_run_game: # () -> void
         # t1 count = 0
         li $t1, 0
         
-        # t3 = &regular_levels + (game->level_idx) * sizeof(Level)
-        la $t4, regular_levels
-        lbu $t2, 2149($t0)
-        li $t3, 2124  # // level size
-        mult $t2, $t3
-        mflo $t3
-        add $t3, $t4, $t3
+        # if (game.mode_mask == 2) // Custom level
+        lbu $t1, 2148($t0)
+        bne $t1, 2, ELSE_run_game_14
+        IF_run_game_46:
+            # t3 = &custom + (game.level_idx) * sizeof(Level)
+            la $t4, custom_levels
+            lbu $t2, 2149($t0)
+            li $t3, 2124  # // level size
+            mult $t2, $t3
+            mflo $t3
+            add $t3, $t4, $t3
+        
+            j ENDIF_run_game_46
+        ELSE_run_game_14: # else: // Regular level
+        
+            # t3 = &regular_levels + (game.level_idx) * sizeof(Level)
+            la $t4, regular_levels
+            lbu $t2, 2149($t0)
+            li $t3, 2124  # // level size
+            mult $t2, $t3
+            mflo $t3
+            add $t3, $t4, $t3
+            
+        ENDIF_run_game_46:
+        
         
         LOOP_run_game_1: # while (count < sizeof(level))  // Copy level into game struct
             beq $t1, 2124, ENDLOOP_run_game_1
@@ -2887,6 +3026,331 @@ fn_run_game: # () -> void
 ## DRAWING FUNCTIONS: ########################################
 
 
+# Erase and redraw editor topbar
+fn_draw_editor_topbar: # () -> void
+    sw $ra, 0($sp)
+    sub $sp, $sp, 4
+    
+    # // Clear topbar
+    lw $t1, BG_COLOR
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 0
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 128
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 10
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Draw RGB text and lives icon
+    li $t1, 1
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 0
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    la $t1, BMP_EDITOR_RGB_TEXT
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_bitmap
+    
+    li $t1, 106
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 0
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    la $t1, BMP_HEART
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_bitmap
+    
+    
+    # // Draw RGB
+    la $t0, editor
+    lbu $t3, 30($t0) # // Red
+    li $t1, 30
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    sw $t3, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_int
+    
+    la $t0, editor
+    lbu $t1, 1($t0) # // rgb_sel
+    bne $t1, 1, ENDIF_draw_editor_topbar_1
+    IF_draw_editor_topbar_1: # if (rgb_sel == 1) // Red
+        # // Draw underline
+        li $t1, 0x00ff0000
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 29
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 9
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 17
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 1
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        jal fn_draw_rect
+    ENDIF_draw_editor_topbar_1:
+    
+    la $t0, editor
+    lbu $t3, 29($t0) # // Green
+    li $t1, 55
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    sw $t3, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_int
+    
+    la $t0, editor
+    lbu $t1, 1($t0) # // rgb_sel
+    bne $t1, 2, ENDIF_draw_editor_topbar_2
+    IF_draw_editor_topbar_2: # if (rgb_sel == 1) // Red
+        # // Draw underline
+        li $t1, 0x00ff0000
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 54
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 9
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 17
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 1
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        jal fn_draw_rect
+    ENDIF_draw_editor_topbar_2:
+    
+    la $t0, editor
+    lbu $t3, 28($t0) # // Blue
+    li $t1, 80
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    sw $t3, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_int
+    
+    la $t0, editor
+    lbu $t1, 1($t0) # // rgb_sel
+    bne $t1, 2, ENDIF_draw_editor_topbar_3
+    IF_draw_editor_topbar_3: # if (rgb_sel == 1) // Red
+        # // Draw underline
+        li $t1, 0x00ff0000
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 84
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 9
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 17
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 1
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        jal fn_draw_rect
+    ENDIF_draw_editor_topbar_3:
+    
+    # // Draw lives value
+    la $t0, editor
+    lbu $t3, 3($t0) # // lives
+    li $t1, 120
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    sw $t3, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_int
+    
+    la $t0, editor
+    lbu $t1, 1($t0) # // rgb_sel
+    bne $t1, 2, ENDIF_draw_editor_topbar_4
+    IF_draw_editor_topbar_4: # if (rgb_sel == 1) // Red
+        # // Draw underline
+        li $t1, 0x00ff0000
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 120
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 9
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 4
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        li $t1, 1
+        sw $t1, 0($sp)
+        sub $sp, $sp, 4
+        jal fn_draw_rect
+    ENDIF_draw_editor_topbar_4:
+    
+    # return
+    add $sp, $sp, 4
+    lw $ra, 0($sp)
+    jr $ra
+
+
+# Erase and redraw editor main screen
+fn_draw_editor_main: # () -> void
+    sw $ra, 0($sp)
+    sub $sp, $sp, 4
+    
+    # // Clear main screen
+    lw $t1, BG_COLOR
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 0
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 10
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 128
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    li $t1, 118
+    sw $t1, 0($sp)
+    sub $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Draw level
+    la $t0, custom_levels
+    lbu $t1, editor
+    li $t2, 2124
+    mult $t1, $t2
+    mflo $t2
+    add $t0, $t0, $t2
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_level
+    
+    # // Draw paddle
+    li $t1, 0x00ffffff
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 50
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 120
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 25
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 3
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Draw ball
+    li $t1, 0x00ffffff
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 60
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 112
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 3
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 3
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Draw Cursor
+    la $t0, editor
+    lw $t1, 4($t0)
+    subi $t1, $t1, 1
+    lw $t2, 8($t0)
+    addi $t2, $t2, 10 # // Topbar
+    subi $t2, $t2, 1
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    la $t1, BMP_EDITOR_CURSOR
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_bitmap
+    
+    # // Draw selection box
+    la $t0, editor
+    lw $t1, 12($t0) # corner1.x
+    lw $t2, 16($t0) # corner1.y
+    addi $t2, $t2, 10 # // Topbar
+    lw $t3, 20($t0) # corner2.x
+    lw $t4, 24($t0) # corner2.y
+    addi $t4, $t4, 10 # // Topbar
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    sw $t3, 0($sp)
+    subi $sp, $sp, 4
+    sw $t4, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_corners_to_rect
+    addi $sp, $sp, 4
+    lw $t4, 0($sp) # h
+    addi $sp, $sp, 4
+    lw $t3, 0($sp) # w
+    addi $sp, $sp, 4
+    lw $t2, 0($sp) # y
+    addi $sp, $sp, 4
+    lw $t1, 0($sp) # x
+    
+    li $t7, 0x0000ffff
+    sw $t7, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    sw $t3, 0($sp)
+    subi $sp, $sp, 4
+    sw $t4, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_hollow_rect
+    
+    # return
+    add $sp, $sp, 4
+    lw $ra, 0($sp)
+    jr $ra
+
+
 
 # Update level selection outlines in edit menu
 fn_edit_menu_update_outlines: # () -> void
@@ -4341,7 +4805,103 @@ fn_draw_int: # (Vec top_left, int val) -> void
     # return
     jr $ra
     
-# Erase a rectangular region of the screen
+    
+
+# Draws hollow rectangle
+fn_draw_hollow_rect: # (Rect rect) -> void
+    # 8($sp) h
+    # 12($sp) w
+    # 16($sp) y
+    # 20($sp) x
+    # 24($sp) color
+    sw $ra, 0($sp)
+    subi $sp, $sp, 4
+    
+    # // Top line
+    lw $t0, 20($sp) # x
+    lw $t1, 16($sp) # y
+    lw $t2, 12($sp) # w
+    lw $t7, 24($sp) # color
+    sw $t7, 0($sp)
+    subi $sp, $sp, 4
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Left Line
+    lw $t0, 20($sp) # x
+    lw $t1, 16($sp) # y
+    lw $t2, 8($sp) # h
+    lw $t7, 24($sp) # color
+    sw $t7, 0($sp)
+    subi $sp, $sp, 4
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Bottom line
+    lw $t0, 20($sp) # x
+    lw $t1, 16($sp) # y
+    lw $t2, 12($sp) # w
+    lw $t3, 8($sp) # h
+    add $t1, $t1, $t3 # y + h
+    lw $t7, 24($sp) # color
+    sw $t7, 0($sp)
+    subi $sp, $sp, 4
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # // Right Line
+    lw $t0, 20($sp) # x
+    lw $t1, 16($sp) # y
+    lw $t2, 8($sp) # h
+    lw $t3, 12($sp) # w
+    add $t0, $t0, $t3 # x + w
+    lw $t7, 24($sp) # color
+    sw $t7, 0($sp)
+    subi $sp, $sp, 4
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 1
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_draw_rect
+    
+    # return
+    addi $sp, $sp, 4
+    lw $ra, 0($sp)
+    addi $sp, $sp, 20  # Pop rect params
+    jr $ra
+    
+    
+    
+# Fill a rectangular region of the screen with a color
 fn_draw_rect: # (Rect rect) -> void
     # t0 x, t1 y = rect.pos
     # t2 w, t3 h = rect.w_h
@@ -4515,12 +5075,20 @@ fn_draw_bitmap: # (Vec top_left, int bitmap_addr) -> void
                 addi $sp, $sp, 4
                 lw $ra, 0($sp)
             
-                # display[addr] = *bitmap_addr
-                lw $t1, ADDR_DSPL
-                add $t1, $t1, $t0
-                lw $t2, 20($sp)
-                lw $t3, 0($t2)
-                sw $t3, 0($t1)
+                # if (0 <= addr <= 65532)
+                sle $t6, $t0, 65532
+                sge $t5, $t0, 0
+                and $t5, $t5, $t6
+                bne $t5, 1, ENDIF_fn_draw_bitmap_2
+                IF_fn_draw_bitmap_2:
+                    # display[addr] = *bitmap_addr
+                    lw $t1, ADDR_DSPL
+                    add $t1, $t1, $t0
+                    lw $t2, 20($sp)
+                    lw $t3, 0($t2)
+                    sw $t3, 0($t1)
+                ENDIF_fn_draw_bitmap_2:
+                
             ENDIF_fn_draw_bitmap_1:
             
             # bitmap_addr += 4
@@ -4784,7 +5352,379 @@ fn_first_null_custom: # () -> int
     jr $ra
 
 
+
+# Loop through the level and check if the provided rect collides with any walls or bricks
+# also check collision with default starting ball and paddle location
+# The second returned int has the following values:
+# 1 = collided with brick
+# 2 = collided with wall
+# 3 = collided with paddle or ball
+# 4 = no collision
+# If 1 or 2, then the first return value is a pointer to the object that was collided with
+# If 3 or 4, the value of the returned pointer is irrelevant and can be garbage
+fn_collide_level: # (Level *level_ptr, Vec top_left, Vec, w_h) -> void *, int
+    addi $sp, $sp, 4
+    lw $t4, 0($sp) # w_h.y
+    addi $sp, $sp, 4
+    lw $t3, 0($sp) # w_h.x
+    addi $sp, $sp, 4
+    lw $t2, 0($sp) # top_left.y
+    addi $sp, $sp, 4
+    lw $t1, 0($sp) # top_left.x
+    addi $sp, $sp, 4
+    lw $t0, 0($sp) # level_ptr
+    
+    sw $ra, 0($sp)
+    subi $sp, $sp, 4
+    
+    # 4($sp) level_ptr
+    # 8($sp) top_left.x
+    # 12($sp) top_left.y
+    # 16($sp) w_h.x
+    # 20($sp) w_h.y
+    # 24($sp) ptr // For looping bricks and walls
+    # 28($sp) i // obj count loop var
+    subi $sp, $sp, 4
+    subi $sp, $sp, 4
+    sw $t4, 0($sp)
+    subi $sp, $sp, 4
+    sw $t3, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    
+    # i = 0, ptr = &level_ptr->bricks
+    li $t1, 0
+    sw $t1, 28($sp)
+    lw $t0, 4($sp)
+    addi $t0, $t0, 4
+    sw $t0, 24($sp)
+    
+    # for brick in bricks
+    LOOP_collide_level_1:
+        lw $t0, 4($sp) # level_ptr
+        lbu $t1, 2($t0) # num_bricks
+        lw $t2, 28($sp) # i
+        beq $t1, $t2, ENDLOOP_collide_level_1
+    
+        # if (brick != NULL)
+        lw $t0, 24($sp) # ptr
+        lw $t1, 0($t0)
+        beq $t1, 0, ENDIF_collide_level_1
+        IF_collide_level_1:
+            
+            lw $t0, 8($sp)
+            lw $t1, 12($sp)
+            lw $t2, 16($sp)
+            lw $t3, 20($sp)
+            lw $t4, 24($sp) # ptr
+            
+            sw $t0, 0($sp)
+            subi $sp, $sp, 4
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            sw $t2, 0($sp)
+            subi $sp, $sp, 4
+            sw $t3, 0($sp)
+            subi $sp, $sp, 4
+            
+            lw $t1, 8($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            lw $t1, 12($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            lw $t1, 16($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            lw $t1, 20($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            jal fn_rect_collide
+            addi $sp, $sp, 4
+            lw $t0, 0($sp) # t0 = if brick collided with rect
+            
+            bne $t0, 1, ENDIF_collide_level_3
+            IF_collide_level_3:
+                # return
+                lw $t3, 24($sp)
+                
+                addi $sp, $sp, 28 # // Pop local vars
+                addi $sp, $sp, 4
+                lw $ra, 0($sp)
+                
+                sw $t3, 0($sp)
+                subi $sp, $sp, 4
+                li $t1, 0
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                jr $ra
+            ENDIF_collide_level_3:
+            
+            # i++
+            lw $t1, 28($sp)
+            addi $t1, $t1, 1
+            sw $t1, 28($sp)
+            
+        ENDIF_collide_level_1:
+        
+        # ptr += sizeof(Brick) // 24
+        lw $t1, 24($sp)
+        addi $t1, $t1, 24
+        sw $t1, 24($sp)
+    
+        j LOOP_collide_level_1
+    ENDLOOP_collide_level_1:
+    
+    # i = 0, ptr = &level_ptr->walls
+    li $t1, 0
+    sw $t1, 28($sp)
+    lw $t0, 4($sp)
+    addi $t0, $t0, 1924
+    sw $t0, 24($sp)
+    
+    # for wall in walls
+    LOOP_collide_level_2:
+        lw $t0, 4($sp) # level_ptr
+        lbu $t1, 1($t0) # num_walls
+        lw $t2, 28($sp) # i
+        beq $t1, $t2, ENDLOOP_collide_level_2
+    
+        # if (wall != NULL)
+        lw $t0, 24($sp) # ptr
+        lw $t1, 0($t0)
+        srl $t1, $t1, 24
+        beq $t1, 0xff, ENDIF_collide_level_2
+        IF_collide_level_2:
+            
+            lw $t0, 8($sp)
+            lw $t1, 12($sp)
+            lw $t2, 16($sp)
+            lw $t3, 20($sp)
+            lw $t4, 24($sp) # ptr
+            
+            sw $t0, 0($sp)
+            subi $sp, $sp, 4
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            sw $t2, 0($sp)
+            subi $sp, $sp, 4
+            sw $t3, 0($sp)
+            subi $sp, $sp, 4
+            
+            lw $t1, 4($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            lw $t1, 8($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            lw $t1, 12($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            lw $t1, 16($t4)
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            jal fn_rect_collide
+            addi $sp, $sp, 4
+            lw $t0, 0($sp) # t0 = if wall collided with rect
+            
+            bne $t0, 1, ENDIF_collide_level_4
+            IF_collide_level_4:
+                # return
+                lw $t3, 24($sp)
+                
+                addi $sp, $sp, 28 # // Pop local vars
+                addi $sp, $sp, 4
+                lw $ra, 0($sp)
+                
+                sw $t3, 0($sp)
+                subi $sp, $sp, 4
+                li $t1, 1
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                jr $ra
+            ENDIF_collide_level_4:
+            
+            # i++
+            lw $t1, 28($sp)
+            addi $t1, $t1, 1
+            sw $t1, 28($sp)
+            
+        ENDIF_collide_level_2:
+    
+        # ptr += sizeof(Rect) // 20
+        lw $t1, 24($sp)
+        addi $t1, $t1, 20
+        sw $t1, 24($sp)
+    
+        j LOOP_collide_level_2
+    ENDLOOP_collide_level_2:
+    
+    
+    
+    
+    lw $t0, 8($sp)
+    lw $t1, 12($sp)
+    lw $t2, 16($sp)
+    lw $t3, 20($sp)
+    
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    sw $t3, 0($sp)
+    subi $sp, $sp, 4
+    
+    li $t1, 50
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 110
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 25
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 3
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_rect_collide
+    addi $sp, $sp, 4
+    lw $t0, 0($sp) 
+    sw $t0, 28($sp) # i = did paddle collide
+    
+    
+    
+    lw $t0, 8($sp)
+    lw $t1, 12($sp)
+    lw $t2, 16($sp)
+    lw $t3, 20($sp)
+    
+    sw $t0, 0($sp)
+    subi $sp, $sp, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    sw $t2, 0($sp)
+    subi $sp, $sp, 4
+    sw $t3, 0($sp)
+    subi $sp, $sp, 4
+    
+    li $t1, 60
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 102
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 3
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 3
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jal fn_rect_collide
+    addi $sp, $sp, 4
+    lw $t0, 0($sp) # t0 = did ball collide
+    
+    lw $t1, 28($sp) # t1 = did paddle collide
+    
+    or $t0, $t0, $t1 # if (ball collide or paddle collide)
+    bne $t0, 1, ENDIF_collide_level_5
+    IF_collide_level_5:
+        # return (0, 3)    
+        addi $sp, $sp, 28 # // Pop local vars
+        addi $sp, $sp, 4
+        lw $ra, 0($sp)
+        
+        li $t1, 0
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        li $t1, 3
+        sw $t1, 0($sp)
+        subi $sp, $sp, 4
+        jr $ra
+    
+    ENDIF_collide_level_5:
+    
+    # return (0, 4)    
+    addi $sp, $sp, 28 # // Pop local vars
+    addi $sp, $sp, 4
+    lw $ra, 0($sp)
+    
+    li $t1, 0
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    li $t1, 4
+    sw $t1, 0($sp)
+    subi $sp, $sp, 4
+    jr $ra
+
+
+# Given two points, compute the top left and width height of the corresponding rect
+fn_corners_to_rect: # (Vec corner1, Vec corner2) -> Vec t_l, Vec w_h
+    addi $sp, $sp, 4
+    lw $t3, 0($sp) # t3 = corner2.y
+    addi $sp, $sp, 4
+    lw $t2, 0($sp) # t2 = corner2.x
+    addi $sp, $sp, 4
+    lw $t1, 0($sp) # t1 = corner1.y
+    addi $sp, $sp, 4
+    lw $t0, 0($sp) # t0 = corner1.x
+    
+    # t4 = min x, t5 = max x
+    bge $t0, $t2, ELSE_corners_to_rect_1
+    IF_corners_to_rect_1: # if (t0 < t2)
+        # t4 = t0, t5 = t2
+        addi $t4, $t0, 0
+        addi $t5, $t2, 0
+    
+        j ENDIF_corners_to_rect_1
+    ELSE_corners_to_rect_1: # else: // t0 >= t2
+        # t4 = t2, t5 = t0
+        addi $t4, $t2, 0
+        addi $t5, $t0, 0
+        
+    ENDIF_corners_to_rect_1:
+    
+    # t6 = min y, t7 = max y
+    bge $t1, $t3, ELSE_corners_to_rect_2
+    IF_corners_to_rect_2: # if (t1 < t3)
+        # t6 = t1, t7 = t3
+        addi $t6, $t1, 0
+        addi $t7, $t3, 0
+    
+        j ENDIF_corners_to_rect_2
+    ELSE_corners_to_rect_2: # else: // t1 >= t3
+        # t6 = t3, t7 = t1
+        addi $t6, $t3, 0
+        addi $t7, $t1, 0
+        
+    ENDIF_corners_to_rect_2:
+    
+    # t4 = min x, t5 = max x
+    # t6 = min y, t7 = max y
+    
+    sub $t5, $t5, $t4 # t5 = max x - min x = w
+    sub $t7, $t7, $t6 # t6 = max y - min y = h
+    
+    # return
+    sw $t4, 0($sp)
+    subi $sp, $sp, 4
+    sw $t6, 0($sp)
+    subi $sp, $sp, 4
+    sw $t5, 0($sp)
+    subi $sp, $sp, 4
+    sw $t7, 0($sp)
+    subi $sp, $sp, 4
+    
+    jr $ra
+
 END_PROG: 
+
 
 # TODO: Vertical velocity as part of level config (padding?)
 
@@ -4802,3 +5742,6 @@ END_PROG:
 # TODO: Make all drawing functions safe. Currently, draw_bitmap and draw_int will overwrite .data
 # section memory if told to draw something out of bounds. These functions can be modified such that they
 # check the max address and don't write pixels into out of bounds addresses. draw_rect has been safety-fied already
+
+# TODO: After making all draw functions safe, add out of bounds ball detection for other sides. In a custom level, the
+# top and side walls may not exist!
