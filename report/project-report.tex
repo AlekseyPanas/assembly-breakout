@@ -16,7 +16,7 @@
 \title{Assembly Project: Breakout}
 
 % TODO: Enter your name
-\author{Name 1 & Name 2}
+\author{Aleksey Panas}
 
 \begin{document}
 \maketitle
@@ -25,11 +25,27 @@
 
 \begin{enumerate}
 
-    \item Which milestones were implemented? 
+    \item Which milestones were implemented? \newline \newline
     % TODO: List the milestone(s) and in the case of 
     %       Milestones 4 & 5, list what features you 
     %       implemented, sorted into easy and hard 
     %       categories.
+    Features include:
+    \begin{enumerate}
+  
+    \item Precise arbitrary velocity ball movement and collision computation. Computes a unit vector under an 8 bit shift for float accuracy and moves ball at most 1-pixel at a time to detect accurate collisions. Once velocity value reached, updates ball display
+    \item Paddle bounce angle changes
+    \item Bricks can have arbitrary top left corner,  width/height color, and number of lives. Brick color fades with each hit based on fraction of its remaining lives
+    \item Walls can also have an arbitrary size, color, and location
+    \item 5 regular levels with looping in play mode
+    \item player lives ingame
+    \item score and highscore
+    \item menu with full level selection and locked levels until beaten
+    \item Up to 5 custom levels
+    \item Full editor to build custom levels
+    \item Pausing
+    
+    \end{enumerate}
 
     \item How to view the game:
     % TODO: specify the pixes/unit, width and height of 
@@ -38,57 +54,24 @@
     
     \begin{enumerate}
 
-    \item
-    \item
-    \item
+    \item Open and run the file in Saturn (doesn't work in MARS)
+    \item Use ASWD to navigate menus
+    \item Use Spacebar to press buttons, launch the ball, and continue from game over or win screen
+    \item Use R to return to previous menu, or to menu from editor
+    \item Use Square Brackets to change selected RGB or lives value in editor
+    \item Use Q and E to increment or decrement the selected value at the top in editor
+    \item Use ASWD to move cursor in editor
+    \item Use 1 and 2 to set corner 1 and corner 2 of the selection in the editor
+    \item Use X to delete the item at the cursor in the editor
+    \item Use B to place a brick and V to place a wall in the editor. Cannot overlap other game objects
+    \item High score and level unlocking only happens in PLAY MODE, by hitting play (ie selecting a later level from level selection wont count towards score or unlocks)
 
 
     \end{enumerate}
 
     
-
-\begin{figure}[ht!]
-    \centering
-    % \includegraphics[width=0.3\textwidth]{name.png}
-    \caption{caption}
-    \label{Instructions}
-\end{figure}
-
-\item Game Summary:
-% TODO: Tell us a little about your game.
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-    
 \end{enumerate}
 
-\section{Attribution Table}
-% TODO: If you worked in partners, tell us who was 
-%       responsible for which features. Some reweighting 
-%       might be possible in cases where one group member
-%       deserves extra credit for the work they put in.
-
-\begin{center}
-\begin{tabular}{|| c | c ||}
-\hline
- Student 1 (Name and student number) &  Student 2 (Name and student number) \\ 
- \hline
- Task & Task\\
- \hline
- Task & Task\\
- \hline
- Task & Task\\ 
- \hline
- Task & Task\\ 
- \hline
- Task & Task\\
- \hline
- Task & Task\\  
- \hline
-\end{tabular}
-\end{center}
 
 % TODO: Fill out the remainder of the document as you see 
 %       fit, including as much detail as you think 
@@ -97,6 +80,18 @@
 %       help us understand why you deserve marks for 
 %       features that were more challenging than they
 %       might initially seem.
+The project took a total of 74 hours to complete over the course of 2 weeks. The final file has 6200 lines of assembly code. I improved as I went so many areas could be shortened and outsourced into functions. Still, I planned functions from the beginning and ended up using the stack extensively. 
 
+Some functions I implemented include arbitrary collision between two rectangles, bitmap renderer, arbitrary integer renderer, filled and hollow rectangle renderers, vector to screen address converter, two points to top left width height format converter, and countless other helpers. 
+
+To navigate the game, I used an underlying state machine. The main loop is very thin and simply delegates to the corresponding state handler. A "dirty" flag is used to trigger a state change and must be set to 1 along with state change parameters. 
+
+However, not everything is limited to assembly. To help construct the bitmaps, I built a quick 200-line pygame script in python to be able to draw bitmaps and convert them into the format necessary to directly paste into the .data section. A second script was used to help preserve levels in an easier format and then convert to the .data format
+
+To test certain utility functions in isolation, I created additional asm files for unit testing.
+
+Submitted along with this report and the assembly file is a PDF document of my digital notebook where I wrote down most of my code planning, as well as outlines of every struct used in the code. Without this, there is no way the code will be readable
+
+The entire project is on my github at the following link: https://github.com/AlekseyPanas/assembly-breakout 
 
 \end{document}
