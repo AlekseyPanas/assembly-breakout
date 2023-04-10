@@ -1016,37 +1016,225 @@ fn_run_editor: # () -> void
         lw $t1, 4($t0) # key
         beq $t1, 49, ELIF_run_editor_4
         beq $t1, 50, ELIF_run_editor_5
-        beq
+        beq $t1, 113, ELIF_run_editor_8
+        beq $t1, 101, ELIF_run_editor_9
+        beq $t1, 114, ELIF_run_editor_10
+        beq $t1, 120, ELIF_run_editor_11
+        beq $t1, 98, ELIF_run_editor_12
+        beq $t1, 118, ELIF_run_editor_13
+        la $t0, editor
+        lw $t2, 4($t0) # cursor.x
+        lw $t3, 8($t0) # cursor.y
+        lbu $t4, 1($t0) # rgb_sel
+        
+        slt $t6, $t2, 127
+        seq $t7, $t1, 100
+        and $t6, $t6, $t7
+        beq $t6, 1, IF_run_editor_2
+        
+        sgt $t6, $t2, 0
+        seq $t7, $t1, 97
+        and $t6, $t6, $t7
+        beq $t6, 1, ELIF_run_editor_1
+        
+        sgt $t6, $t3, 0
+        seq $t7, $t1, 119
+        and $t6, $t6, $t7
+        beq $t6, 1, ELIF_run_editor_2
+        
+        slt $t6, $t3, 117
+        seq $t7, $t1, 115
+        and $t6, $t6, $t7
+        beq $t6, 1, ELIF_run_editor_3
+        
+        sgt $t6, $t4, 1
+        seq $t7, $t1, 91
+        and $t6, $t6, $t7
+        beq $t6, 1, ELIF_run_editor_6
+        
+        slt $t6, $t4, 4
+        seq $t7, $t1, 93
+        and $t6, $t6, $t7
+        beq $t6, 1, ELIF_run_editor_7
         
         j ENDIF_run_editor_2
         IF_run_editor_2: # key == 'd' && cursor.x < 127
+            # cursor.x ++
+            la $t0, editor
+            lw $t1, 4($t0)
+            addi $t1, $t1, 1
+            sw $t1, 4($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_1: # key == 'a' && cursor.x > 0
+            # cursor.x --
+            la $t0, editor
+            lw $t1, 4($t0)
+            subi $t1, $t1, 1
+            sw $t1, 4($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_2: # key == 'w' && cursor.y > 0
+            # cursor.y --
+            la $t0, editor
+            lw $t1, 8($t0)
+            subi $t1, $t1, 1
+            sw $t1, 8($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_3: # key == 's' && cursor.y < 117
+            # cursor.y ++
+            la $t0, editor
+            lw $t1, 8($t0)
+            addi $t1, $t1, 1
+            sw $t1, 8($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_4: # key == '1'
+            # corner1 = cursor
+            la $t0, editor
+            lw $t1, 4($t0)
+            lw $t2, 8($t0)
+            sw $t1, 12($t0)
+            sw $t2, 16($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_5: # key == '2'
+            # corner2 = cursor
+            la $t0, editor
+            lw $t1, 4($t0)
+            lw $t2, 8($t0)
+            sw $t1, 20($t0)
+            sw $t2, 24($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_6: # key == '[' && rgb_sel > 1
+            # rgb_sel --
+            la $t0, editor
+            lbu $t1, 1($t0)
+            subi $t1, $t1, 1
+            sb $t1, 1($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_7: # key == ']' && rgb_sel < 4
+            # rgb_sel ++
+            la $t0, editor
+            lbu $t1, 1($t0)
+            addi $t1, $t1, 1
+            sb $t1, 1($t0)
         
             j ENDIF_run_editor_2
         ELIF_run_editor_8: # key == 'q'
+            
+            la $t0, editor
+            lbu $t1, 1($t0) # rgb_sel
+            lbu $t2, 30($t0) # color.red
+            lbu $t3, 29($t0) # color.green
+            lbu $t4, 28($t0) # color.blue
+            lbu $t5, 3($t0) # lives
+            
+            seq $t7, $t1, 1
+            sgt $t8, $t2, 0
+            and $t7, $t7, $t8
+            beq $t7, 1, IF_run_editor_4
+            
+            seq $t7, $t1, 2
+            sgt $t8, $t3, 0
+            and $t7, $t7, $t8
+            beq $t7, 1, ELIF_run_editor_14
+            
+            seq $t7, $t1, 3
+            sgt $t8, $t4, 0
+            and $t7, $t7, $t8
+            beq $t7, 1, ELIF_run_editor_15
+            
+            seq $t7, $t1, 4
+            sgt $t8, $t5, 1
+            and $t7, $t7, $t8
+            beq $t7, 1, ELIF_run_editor_16
+            
+            j ENDIF_run_editor_4
+            IF_run_editor_4: # if (rgb_sel == 1 && color.red > 0)
+                # color.red --
+                subi $t2, $t2, 1
+                sb $t2, 30($t0)
+                
+                j ENDIF_run_editor_4
+            ELIF_run_editor_14: # if (rgb_sel == 2 && color.green > 0)
+                # color.green --
+                subi $t3, $t3, 1
+                sb $t3, 29($t0)
+            
+                j ENDIF_run_editor_4
+            ELIF_run_editor_15: # if (rgb_sel == 3 && color.blue > 0)
+                # color.blue --
+                subi $t4, $t4, 1
+                sb $t4, 28($t0)
+            
+                j ENDIF_run_editor_4
+            ELIF_run_editor_16: # if (rgb_sel == 4 && lives > 1)
+                # lives --
+                subi $t5, $t5, 1
+                sb $t5, 3($t0)
+            
+            ENDIF_run_editor_4:
+        
         
             j ENDIF_run_editor_2
         ELIF_run_editor_9: # key == 'e'
+        
+            la $t0, editor
+            lbu $t1, 1($t0) # rgb_sel
+            lbu $t2, 30($t0) # color.red
+            lbu $t3, 29($t0) # color.green
+            lbu $t4, 28($t0) # color.blue
+            lbu $t5, 3($t0) # lives
+            
+            seq $t7, $t1, 1
+            slt $t8, $t2, 255
+            and $t7, $t7, $t8
+            beq $t7, 1, IF_run_editor_5
+            
+            seq $t7, $t1, 2
+            slt $t8, $t3, 255
+            and $t7, $t7, $t8
+            beq $t7, 1, ELIF_run_editor_17
+            
+            seq $t7, $t1, 3
+            slt $t8, $t4, 255
+            and $t7, $t7, $t8
+            beq $t7, 1, ELIF_run_editor_18
+            
+            seq $t7, $t1, 4
+            slt $t8, $t5, 50
+            and $t7, $t7, $t8
+            beq $t7, 1, ELIF_run_editor_19
+            
+            j ENDIF_run_editor_5
+            IF_run_editor_5: # if (rgb_sel == 1 && color.red < 255)
+                # color.red ++
+                addi $t2, $t2, 1
+                sb $t2, 30($t0)
+                
+                j ENDIF_run_editor_5
+            ELIF_run_editor_17: # if (rgb_sel == 2 && color.green < 255)
+                # color.green ++
+                addi $t3, $t3, 1
+                sb $t3, 29($t0)
+            
+                j ENDIF_run_editor_5
+            ELIF_run_editor_18: # if (rgb_sel == 3 && color.blue < 255)
+                # color.blue ++
+                addi $t4, $t4, 1
+                sb $t4, 28($t0)
+            
+                j ENDIF_run_editor_5
+            ELIF_run_editor_19: # if (rgb_sel == 4 && lives < 50)
+                # lives ++
+                addi $t5, $t5, 1
+                sb $t5, 3($t0)
+            
+            ENDIF_run_editor_5:
         
             j ENDIF_run_editor_2
         ELIF_run_editor_10: # key == 'r'
@@ -1059,14 +1247,199 @@ fn_run_editor: # () -> void
         
             j ENDIF_run_editor_2
         ELIF_run_editor_11: # key == 'x'
+            la $t0, custom_levels
+            lbu $t1, editor
+            li $t2, 2124
+            mult $t1, $t2
+            mflo $t2
+            add $t1, $t0, $t2 # t1 = &custom_levels[level_idx]
+        
+            la $t0, editor
+            lw $t2, 4($t0) # cursor.x
+            lw $t3, 8($t0) # cursor.y
+            
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            sw $t2, 0($sp)
+            subi $sp, $sp, 4
+            sw $t3, 0($sp)
+            subi $sp, $sp, 4
+            li $t1, 1
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            li $t1, 1
+            sw $t1, 0($sp)
+            subi $sp, $sp, 4
+            jal fn_collide_level
+            addi $sp, $sp, 4
+            lw $t1, 0($sp) # t1 int_code
+            addi $sp, $sp, 4
+            lw $t2, 0($sp) # t2 ptr
+            
+            beq $t1, 1, IF_run_editor_6
+            beq $t1, 2, ELIF_run_editor_20
+            j ENDIF_run_editor_6
+            IF_run_editor_6: # if (int_code == 1) // Brick
+                # ptr->life = 0
+                li $t3, 0
+                sw $t3, 0($t2)
+                
+                # custom_levels[level_idx].num_bricks --
+                la $t0, custom_levels
+                lbu $t4, editor
+                li $t5, 2124
+                mult $t4, $t5
+                mflo $t5
+                add $t5, $t0, $t5 # t5 = &custom_levels[level_idx]
+                lbu $t6, 2($t5)
+                subi $t6, $t6, 1
+                sb $t6, 2($t5)
+                
+                j ENDIF_run_editor_6
+            ELIF_run_editor_20: # elif (int_code == 2) // Wall
+                # ptr->color = 0xff000000
+                li $t3, 0xff000000
+                sw $t3, 0($t2)
+                
+                # custom_levels[level_idx].num_walls --
+                la $t0, custom_levels
+                lbu $t4, editor
+                li $t5, 2124
+                mult $t4, $t5
+                mflo $t5
+                add $t5, $t0, $t5 # t5 = &custom_levels[level_idx]
+                lbu $t6, 1($t5)
+                subi $t6, $t6, 1
+                sb $t6, 1($t5)
+                
+            ENDIF_run_editor_6:
         
             j ENDIF_run_editor_2
         ELIF_run_editor_12: # key == 'b'
+            # 4($sp) &custom_levels[level_idx]
+            # 8($sp) x 
+            # 12($sp) y
+            # 16($sp) w 
+            # 20($sp) h
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
+            subi $sp, $sp, 4
         
+            la $t0, custom_levels
+            lbu $t4, editor
+            li $t5, 2124
+            mult $t4, $t5
+            mflo $t5
+            add $t5, $t0, $t5 
+            sw $t5, 4($sp) # 4($sp) = &custom_levels[level_idx]
+            
+            lw $t1, 4($sp)
+            bge $t1, 80, ENDIF_run_editor_7
+            IF_run_editor_7: # if (->num_bricks < 80)
+                
+                # // Compute rectangle and save it to the stack
+                la $t0, editor
+                lw $t1, 12($t0)
+                lw $t2, 16($t0)
+                lw $t3, 20($t0)
+                lw $t4, 24($t0)
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                sw $t2, 0($sp)
+                subi $sp, $sp, 4
+                sw $t3, 0($sp)
+                subi $sp, $sp, 4
+                sw $t4, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_corners_to_rect
+                addi $sp, $sp, 4
+                lw $t4, 0($sp) # h
+                addi $sp, $sp, 4
+                lw $t3, 0($sp) # w
+                addi $sp, $sp, 4
+                lw $t2, 0($sp) # y
+                addi $sp, $sp, 4
+                lw $t1, 0($sp) # x
+                sw $t1, 8($sp)
+                sw $t2, 12($sp)
+                sw $t3, 16($sp)
+                sw $t4, 20($sp)
+                
+                # if (! rect.collide(level))
+                lw $t6, 4($sp)
+                sw $t6, 0($sp)
+                subi $sp, $sp, 4
+                sw $t1, 0($sp)
+                subi $sp, $sp, 4
+                sw $t2, 0($sp)
+                subi $sp, $sp, 4
+                sw $t3, 0($sp)
+                subi $sp, $sp, 4
+                sw $t4, 0($sp)
+                subi $sp, $sp, 4
+                jal fn_collide_level
+                addi $sp, $sp, 4
+                lw $t7, 0($sp)
+                addi $sp, $sp, 4
+                bne $t7, 4, ENDIF_run_editor_8
+                IF_run_editor_8:
+                
+                    lw $t0, 4($sp) # // level pointer
+                    addi $t0, $t0, 4 # // Go to bricks
+                    LOOP_run_editor_1:
+                        
+                        # if (brick == NULL)
+                        lw $t1, 0($t0)
+                        bne $t1, 0, ENDIF_run_editor_9
+                        IF_run_editor_9:
+                            
+                            # // Generate brick
+                            la $t1, editor
+                            lbu $t2, 3($t1) # lives = lives
+                            sw $t2, 0($t0)
+                            lw $t2, 28($t1) # color = color
+                            sw $t2, 4($t0)
+                            lw $t2, 8($sp) # x
+                            sw $t2, 8($t0)
+                            lw $t2, 12($sp) # y
+                            sw $t2, 12($t0)
+                            lw $t2, 16($sp) # w
+                            sw $t2, 16($t0)
+                            lw $t2, 20($sp) # h
+                            sw $t2, 20($t0)
+                            
+                            # ->num_bricks++
+                            lw $t1, 4($sp)
+                            lbu $t2, 2($t1)
+                            addi $t2, $t2, 1
+                            sb $t2, 2($t1)
+                            
+                            # break;
+                            j ENDLOOP_run_editor_2
+                            
+                        ENDIF_run_editor_9:
+                    
+                        # ptr += sizeof(Brick) // 24
+                        addi $t0, $t0, 24
+                        j LOOP_run_editor_1
+                    ENDLOOP_run_editor_2:
+                    
+                ENDIF_run_editor_8:
+            
+            ENDIF_run_editor_7:
+        
+            addi $sp, $sp, 20
             j ENDIF_run_editor_2
         ELIF_run_editor_13: # key == 'v'
         
         ENDIF_run_editor_2:
+        
+        # // Re-Draw editor
+        jal fn_draw_editor_topbar
+        jal fn_draw_editor_main
+        
     ENDIF_run_editor_3:
 
 
@@ -3060,7 +3433,7 @@ fn_draw_editor_topbar: # () -> void
     sub $sp, $sp, 4
     jal fn_draw_bitmap
     
-    li $t1, 106
+    li $t1, 101
     sw $t1, 0($sp)
     sub $sp, $sp, 4
     li $t1, 0
@@ -3123,7 +3496,7 @@ fn_draw_editor_topbar: # () -> void
     la $t0, editor
     lbu $t1, 1($t0) # // rgb_sel
     bne $t1, 2, ENDIF_draw_editor_topbar_2
-    IF_draw_editor_topbar_2: # if (rgb_sel == 1) // Red
+    IF_draw_editor_topbar_2: # if (rgb_sel == 2) // Green
         # // Draw underline
         li $t1, 0x00ff0000
         sw $t1, 0($sp)
@@ -3157,13 +3530,13 @@ fn_draw_editor_topbar: # () -> void
     
     la $t0, editor
     lbu $t1, 1($t0) # // rgb_sel
-    bne $t1, 2, ENDIF_draw_editor_topbar_3
-    IF_draw_editor_topbar_3: # if (rgb_sel == 1) // Red
+    bne $t1, 3, ENDIF_draw_editor_topbar_3
+    IF_draw_editor_topbar_3: # if (rgb_sel == 3) // Blue
         # // Draw underline
         li $t1, 0x00ff0000
         sw $t1, 0($sp)
         sub $sp, $sp, 4
-        li $t1, 84
+        li $t1, 79
         sw $t1, 0($sp)
         sub $sp, $sp, 4
         li $t1, 9
@@ -3181,7 +3554,7 @@ fn_draw_editor_topbar: # () -> void
     # // Draw lives value
     la $t0, editor
     lbu $t3, 3($t0) # // lives
-    li $t1, 120
+    li $t1, 115
     sw $t1, 0($sp)
     sub $sp, $sp, 4
     li $t1, 1
@@ -3193,19 +3566,19 @@ fn_draw_editor_topbar: # () -> void
     
     la $t0, editor
     lbu $t1, 1($t0) # // rgb_sel
-    bne $t1, 2, ENDIF_draw_editor_topbar_4
-    IF_draw_editor_topbar_4: # if (rgb_sel == 1) // Red
+    bne $t1, 4, ENDIF_draw_editor_topbar_4
+    IF_draw_editor_topbar_4: # if (rgb_sel == 4) // lives
         # // Draw underline
         li $t1, 0x00ff0000
         sw $t1, 0($sp)
         sub $sp, $sp, 4
-        li $t1, 120
+        li $t1, 115
         sw $t1, 0($sp)
         sub $sp, $sp, 4
         li $t1, 9
         sw $t1, 0($sp)
         sub $sp, $sp, 4
-        li $t1, 4
+        li $t1, 10
         sw $t1, 0($sp)
         sub $sp, $sp, 4
         li $t1, 1
@@ -3332,7 +3705,8 @@ fn_draw_editor_main: # () -> void
     addi $sp, $sp, 4
     lw $t1, 0($sp) # x
     
-    li $t7, 0x0000ffff
+    la $t7, editor
+    lw $t7, 28($t7)
     sw $t7, 0($sp)
     subi $sp, $sp, 4
     sw $t1, 0($sp)
@@ -5459,7 +5833,7 @@ fn_collide_level: # (Level *level_ptr, Vec top_left, Vec, w_h) -> void *, int
                 
                 sw $t3, 0($sp)
                 subi $sp, $sp, 4
-                li $t1, 0
+                li $t1, 1
                 sw $t1, 0($sp)
                 subi $sp, $sp, 4
                 jr $ra
@@ -5543,7 +5917,7 @@ fn_collide_level: # (Level *level_ptr, Vec top_left, Vec, w_h) -> void *, int
                 
                 sw $t3, 0($sp)
                 subi $sp, $sp, 4
-                li $t1, 1
+                li $t1, 2
                 sw $t1, 0($sp)
                 subi $sp, $sp, 4
                 jr $ra
