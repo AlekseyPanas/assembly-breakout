@@ -1,18 +1,19 @@
 .data
 
-thing: .word 0x12345678, 0x9abcdef0
-
-menu_state: .word 0x08020300, 0x00000045  # struct MenuState
+SAVE_FILE: .asciiz "./save.txt"
+BUF: .byte 65:100
 
 .text
-la $t0, menu_state
 
-lbu $t1, 0($t0)
-lbu $t2, 1($t0)
-lbu $t3, 2($t0)
-lbu $t4, 3($t0)
-
-lw $t5, 4($t0)
+li $v0, 13
+la $a0, SAVE_FILE
+li $a1, 1
+syscall
+addi $a0, $v0, 0
+li $v0, 15
+la $a1, BUF
+li $a2 50
+syscall
 
 
 

@@ -81,6 +81,8 @@ BG_COLOR: .word 0x00000000
 NEWLINE: .asciiz "\n"
 SPACE: .asciiz " "
 
+SAVE_FILE: .asciiz "/Users/alexpanas/Desktop/UTorontoWork/Y2/CSC258/project-starter-files/breakout/breakout.save"
+
 # Bitmaps 
 ########################
 BMP_ZERO: .word 0x00000004, 0x00000007, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0xff000000, 0xff000000, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff
@@ -213,7 +215,7 @@ custom_levels: .word 0x01000000:2655  # struct level[5]
 
 menu_state: .word 0:2  # struct MenuState
 game: .word 0:540  # struct Game
-editor: .word 0:8  # struct Editor
+editor: .word 0:9  # struct Editor
 
 dirty: .byte 1 # boolean // 1 if state is being intialized
 
@@ -274,6 +276,20 @@ main:
     la $t1, custom_levels
     li $t0, 1
     sb $t0, 3($t1)
+    
+    # Check if file exists. If so, load data for custom levels
+    li $v0, 13
+    la $a0, SAVE_FILE
+    li $a1, 0
+    syscall
+    beq $v0, -1, ENDIF_main_1
+    IF_main_1: # if (fd != -1)
+       addi $a0, $v0, 0
+       li $v0, 14
+       la $a1, custom_levels
+       li $a2, 10620
+       syscall
+    ENDIF_main_1:
     
 game_loop:
     # t2 = menu_state.state <= 3
@@ -951,6 +967,8 @@ fn_run_editor: # () -> void
         sw $t1, 24($t0) # .corner2.y = 15
         li $t1, 0x00ff0000
         sw $t1, 28($t0) # .color = Red
+        li $t1, 0
+        sw $t1, 32($t0) # .fast_cursor = 0
         
         # // Draw editor
         jal fn_draw_editor_topbar
@@ -965,9 +983,10 @@ fn_run_editor: # () -> void
     lw $t1, 0($t0)
     bne $t1, 1, ENDIF_run_editor_3
     IF_run_editor_3:
-        # 1 = 49, 2 = 50, b = 98, x = 120, a = 97, s = 115, d = 100, w = 119, [ = 91, ] = 93, q = 113, e = 101, r = 114, v = 118
+        # 1 = 49, 2 = 50, b = 98, x = 120, a = 97, s = 115, d = 100, w = 119, [ = 91, ] = 93, q = 113, e = 101, r = 114, v = 118, f = 102
         
         lw $t1, 4($t0) # key
+        beq $t1, 102, ELIF_run_editor_21
         beq $t1, 49, ELIF_run_editor_4
         beq $t1, 50, ELIF_run_editor_5
         beq $t1, 113, ELIF_run_editor_8
@@ -1012,36 +1031,123 @@ fn_run_editor: # () -> void
         beq $t6, 1, ELIF_run_editor_7
         
         j ENDIF_run_editor_2
-        IF_run_editor_2: # key == 'd' && cursor.x < 127
-            # cursor.x ++
+        IF_run_editor_2: # key == 'd' && cursor.x < 127            
             la $t0, editor
+            lw $t1, 32($t0)
+            beq $t1, 0, IF_run_editor_17
             lw $t1, 4($t0)
-            addi $t1, $t1, 1
-            sw $t1, 4($t0)
+            blt $t1, 117, ELIF_run_editor_25
+            j ENDIF_run_editor_17
+            IF_run_editor_17: # if (!fast_cursor)
+                # cursor.x ++
+                la $t0, editor
+                lw $t1, 4($t0)
+                addi $t1, $t1, 1
+                sw $t1, 4($t0)
+                
+                j ENDIF_run_editor_16
+            ELIF_run_editor_25: # elif (cursor.x < 117)
+                # cursor.x += 10
+                la $t0, editor
+                lw $t1, 4($t0)
+                addi $t1, $t1, 10
+                sw $t1, 4($t0)
+                
+            ENDIF_run_editor_17:
         
             j ENDIF_run_editor_2
         ELIF_run_editor_1: # key == 'a' && cursor.x > 0
-            # cursor.x --
+            # cursor.x --            
             la $t0, editor
+            lw $t1, 32($t0)
+            beq $t1, 0, IF_run_editor_16
             lw $t1, 4($t0)
-            subi $t1, $t1, 1
-            sw $t1, 4($t0)
+            bgt $t1, 9, ELIF_run_editor_24
+            j ENDIF_run_editor_16
+            IF_run_editor_16: # if (!fast_cursor)
+                # cursor.x --
+                la $t0, editor
+                lw $t1, 4($t0)
+                subi $t1, $t1, 1
+                sw $t1, 4($t0)
+                
+                j ENDIF_run_editor_16
+            ELIF_run_editor_24: # elif (cursor.x > 9)
+                # cursor.x -= 10
+                la $t0, editor
+                lw $t1, 4($t0)
+                subi $t1, $t1, 10
+                sw $t1, 4($t0)
+                
+            ENDIF_run_editor_16:
         
             j ENDIF_run_editor_2
-        ELIF_run_editor_2: # key == 'w' && cursor.y > 0
-            # cursor.y --
+        ELIF_run_editor_2: # key == 'w' && cursor.y > 0            
             la $t0, editor
+            lw $t1, 32($t0)
+            beq $t1, 0, IF_run_editor_15
             lw $t1, 8($t0)
-            subi $t1, $t1, 1
-            sw $t1, 8($t0)
+            bgt $t1, 9, ELIF_run_editor_23
+            j ENDIF_run_editor_15
+            IF_run_editor_15: # if (!fast_cursor)
+                # cursor.y --
+                la $t0, editor
+                lw $t1, 8($t0)
+                subi $t1, $t1, 1
+                sw $t1, 8($t0)
+                
+                j ENDIF_run_editor_15
+            ELIF_run_editor_23: # elif (cursor.y > 9)
+                # cursor.y -= 10
+                la $t0, editor
+                lw $t1, 8($t0)
+                subi $t1, $t1, 10
+                sw $t1, 8($t0)
+                
+            ENDIF_run_editor_15:
         
             j ENDIF_run_editor_2
         ELIF_run_editor_3: # key == 's' && cursor.y < 117
-            # cursor.y ++
+            
             la $t0, editor
+            lw $t1, 32($t0)
+            beq $t1, 0, IF_run_editor_14
             lw $t1, 8($t0)
-            addi $t1, $t1, 1
-            sw $t1, 8($t0)
+            blt $t1, 107, ELIF_run_editor_22
+            j ENDIF_run_editor_14
+            IF_run_editor_14: # if (!fast_cursor)
+                # cursor.y ++
+                la $t0, editor
+                lw $t1, 8($t0)
+                addi $t1, $t1, 1
+                sw $t1, 8($t0)
+                
+                j ENDIF_run_editor_14
+            ELIF_run_editor_22: # elif (cursor.y < 107)
+                # cursor.y += 10
+                la $t0, editor
+                lw $t1, 8($t0)
+                addi $t1, $t1, 10
+                sw $t1, 8($t0)
+                
+            ENDIF_run_editor_14:
+            
+            
+        
+            j ENDIF_run_editor_2
+        ELIF_run_editor_21: # key == 'f'
+            # // toggle fast_cursor
+            la $t0, editor
+            lw $t1, 32($t0)
+            beq $t1, 1, ELSE_run_editor_1
+            IF_run_editor_13: # if (.fast_cursor == 0)
+                li $t1, 1
+                sw $t1, 32($t0)
+                j ENDIF_run_editor_13
+            ELSE_run_editor_1: # if (.fast_cursor == 1)
+                li $t1, 0
+                sw $t1, 32($t0)
+            ENDIF_run_editor_13:
         
             j ENDIF_run_editor_2
         ELIF_run_editor_4: # key == '1'
@@ -6190,6 +6296,25 @@ fn_corners_to_rect: # (Vec corner1, Vec corner2) -> Vec t_l, Vec w_h
 
 END_PROG: 
 
+# Saves custom levels to file
+# Open file, overwrite all data
+li $v0, 13
+la $a0, SAVE_FILE
+li $a1, 1
+syscall
+beq $v0, -1, ENDIF_end_1
+IF_end_1: # if (fd != -1)
+   addi $a0, $v0, 0
+   li $v0, 15
+   la $a1, custom_levels
+   li $a2, 10620
+   syscall
+ENDIF_end_1:
+
+
+# TODO: Finish fast cursor mode
+
+# TODO: Add custom level file saving and loading and start and end
 
 # TODO: Vertical velocity as part of level config (padding?)
 
