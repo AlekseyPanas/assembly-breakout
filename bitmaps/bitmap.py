@@ -26,8 +26,8 @@ import time
 import copy
 
 
-DIMS = (20, 10)
-MULT = 10
+DIMS = (128, 128)
+MULT = 6
 bg = (0, 0, 0)
 color = (255, 255, 255)
 
